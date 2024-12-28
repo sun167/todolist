@@ -1,5 +1,5 @@
 import { showProject } from "./controller/projectController";
-
+import "./styles.css";
 showProject();
 // let project = new Project();
 // let todo = createNewTodo("test", "test", "test");

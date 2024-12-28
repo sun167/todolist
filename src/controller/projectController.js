@@ -6,22 +6,56 @@ import { createNewTodo , initiateTodoState, setTodoStateToDoing, setTodoStateToD
 
 export function showProject() {
     let project = new Project();
+    project.title = "Test Project";
+    let projectName = document.getElementById("project-name");
+    const projectNameHeader = document.createElement("h1");
+    projectNameHeader.textContent = project.title;
+    projectName.appendChild(projectNameHeader);
+    initiateTodoList(project);
+    initiateDoinglist();
+    initiateDonelist();
+}
+
+function initiateTodoList(project) {
+
+    let todoListDiv = document.getElementById("todoList");
+
+    const todoListHeader = document.createElement("h2");
+    todoListHeader.id = "todoList-header";
+    todoListHeader.textContent = "To Do";
+
+    todoListDiv.prepend(todoListHeader);
 
     let buttonAddTodo = document.getElementById("button-add-to-do");
-    console.log(buttonAddTodo);
-    // buttonAddTodo.addEventListener("onclick",addTodoElement(project));
-    buttonAddTodo.addEventListener('click',function () {addTodoElement(project)});
+    buttonAddTodo.addEventListener('click', function () {
+        addTodoElement(project);
+    });
+}
 
+function initiateDoinglist() {
+    let doingListDiv = document.getElementById("doingList");
+
+    const doingListHeader = document.createElement("h2");
+    doingListHeader.textContent = "Doing";
+
+    doingListDiv.appendChild(doingListHeader);
 }
-function test() {
-    alert('ok');
+
+function initiateDonelist() {
+    let doneListDiv = document.getElementById("doneList");
+
+    const doneListHeader = document.createElement("h2");
+    doneListHeader.textContent = "Done";
+
+    doneListDiv.appendChild(doneListHeader);
 }
+
 function addTodoElement(project) {
     let todo = createNewTodo("test","test","test")
     addTodo(project, todo);
-    let todoListDiv = document.getElementById("todoList");
+    let todoListHeader = document.getElementById("todoList-header");
     let titleDiv = document.createElement("div");
     titleDiv.textContent  = todo.title;
-    todoListDiv.appendChild(titleDiv);
-    console.log(project);
+    titleDiv.draggable = "true";
+    todoListHeader.after(titleDiv);
 }

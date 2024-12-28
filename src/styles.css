@@ -1,0 +1,32 @@
+#nav{
+    height: 5vh;
+    font-size: 50px;
+    text-align: center;
+    margin: 20px;
+}
+
+#body{
+    height: 85vh;
+    width: 100vw;
+    display:flex;
+    justify-content: space-around;
+    /* padding: 20px; */
+}
+
+#content{
+    width: 60vw;
+    background-color: bisque;
+    padding: 70px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: 100px auto;
+}
+
+#project-name{
+    grid-column-start: span 3;
+}
+
+#left{
+    width: 15vw;
+    background-color: thistle;
+}
