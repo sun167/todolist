@@ -18,7 +18,7 @@
   background-color: bisque;
   padding: 70px;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 33%);
   grid-template-rows: 100px auto;
 }
 
@@ -29,4 +29,22 @@
 #left {
   width: 15vw;
   background-color: thistle;
+}
+
+#todoList{
+
+}
+#add-area{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 20px auto;}
+#input-date{
+}
+#button-add-to-do{
+    grid-column-start: span 2;
+}
+#todo-div {
+    border-radius: 2px;
+    border-color: blue;
+    background-color: lightcoral;
 }

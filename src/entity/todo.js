@@ -2,11 +2,20 @@ import { Priority } from "./priority";
 import { State } from "./state";
 export class Todo {
   constructor() {
+    this.id = 0;
     this.title = "";
     this.description = "";
     this.dueDate = "";
     this.priority = new Priority();
     this.state = new State();
+  }
+
+  get id() {
+    return this._id;
+  }
+
+  set id(id) {
+    this._id = id;
   }
 
   get title() {
