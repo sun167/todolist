@@ -1,5 +1,3 @@
 export function showIndex() {
-    let contentDiv = document.getElementById("content");
-
-    
+  let contentDiv = document.getElementById("content");
 }
