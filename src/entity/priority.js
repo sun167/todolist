@@ -1,23 +1,21 @@
-
 export class Priority {
+  constructor() {
+    this.title = "";
+  }
 
-    constructor() {
-        this.title = "";
-    }
+  get title() {
+    return this._title;
+  }
 
-    get title() {
-        return this._title;
-    }
+  set title(title) {
+    this._title = title;
+  }
 
-    set title(title) {
-        this._title = title;
-    }
+  toString() {
+    console.log(this.title);
+  }
 
-    toString() {
-        console.log(this.title);
-    }
-    
-    equals(priority) {
-        return state.priority == this.priority;
-    }
+  equals(priority) {
+    return priority == this.priority;
+  }
 }

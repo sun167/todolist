@@ -1,5 +1,3 @@
 export function addTodo(project, todo) {
-    project.todoList.push(todo);
+  project.todoList.push(todo);
 }
-
-
