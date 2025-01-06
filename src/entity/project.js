@@ -1,7 +1,16 @@
 export class Project {
   constructor() {
+    this.id = 0;
     this.title = "";
     this.todoList = [];
+  }
+
+  get id() {
+    return this._id;
+  }
+
+  set id(id) {
+    this._id = id;
   }
 
   get title() {

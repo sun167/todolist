@@ -1,7 +1,7 @@
 import { Project } from "../entity/project";
-import { addTodo, addProjectToProjects } from "../service/project";
+import { addTodo } from "../service/project";
 import {
-  createNewTodo, 
+  createNewTodo,
   initiateTodoState,
   setTodoStateToDoing,
   setTodoStateToDone,
@@ -10,101 +10,16 @@ import {
   setTodoPriorityToNotUrgent,
 } from "../service/todo";
 
-export function main() {
-  initiateProject();
-  showProjects();
-}
-
-function showProject(id) {
-  let projects =JSON.parse(localStorage.getItem("projects"));
-  let project = projects[id - 1];
-  let projectName = document.getElementById("project-name");
-  const projectNameHeader = document.createElement("h1");
-  projectNameHeader.textContent = project.title;
-  projectName.appendChild(projectNameHeader);
-
-  
-  initiateTodoList(project);
-  initiateDoinglist();
-  initiateDonelist();
-}
-
-function initiateProject() {
-  let projects = [];
-
+export function showProject() {
   let project = new Project();
   project.title = "Test Project";
-
-  projects.push[project];
-
-  localStorage.setItem("projects", JSON.stringify(projects));
   let projectName = document.getElementById("project-name");
   const projectNameHeader = document.createElement("h1");
   projectNameHeader.textContent = project.title;
   projectName.appendChild(projectNameHeader);
-
-  addProjectToProjects(project);
-
   initiateTodoList(project);
   initiateDoinglist();
   initiateDonelist();
-}
-
-function clearProjectContent() {
-  let content = document.getElementById("content-body");
-  content.innerHTML = "";
-}
-function showProjects() {
-  
-  let buttonAddProject = document.getElementById("button-add-project");
-
-  buttonAddProject.addEventListener("click", function() {
-    addProject();
-  });
-  let inputProjectTitle = document.createElement("input");
-  inputProjectTitle.id = "input-project-title";
-  inputProjectTitle.placeholder = "e.g: Date night at McDonald's"
-  buttonAddProject.before(inputProjectTitle);
-  let projects =JSON.parse(localStorage.getItem("projects"));
-  projects.forEach(project => {
-    console.log(project);
-    console.log(project._title);
-    showProjectOnTheLeft(project);
-  });
-}
-
-function showProjectOnTheLeft(project) {
-  let projectHeader = document.getElementById("project-header");
-  let projectDiv = document.createElement("div");
-
-  projectDiv.id = "project-div";
-
-  projectDiv.addEventListener("click", function() {
-    clearProjectContent();
-    showProject(project.id);
-  });
-  let projectTitleDiv = document.createElement("div");
-  projectTitleDiv.id = "project-title-div";
-  // TODO not clean find another way
-  projectTitleDiv.textContent = project.title;
-  projectTitleDiv.textContent = project._title;
-
-  projectDiv.appendChild(projectTitleDiv);
-
-  projectHeader.after(projectDiv);
-
-  console.log(projectDiv);
-  console.log(projectHeader);
-}
-function addProject() {
-  let inputTitle = document.getElementById("input-project-title");
-
-  let project = new Project();
-  project.title = inputTitle.value;
-
-  addProjectToProjects(project);
-
-  showProjectOnTheLeft(project); 
 }
 
 function initiateTodoList(project) {
@@ -156,6 +71,8 @@ function initiateDonelist() {
 function addTodoElement(project) {
   let inputTitle = document.getElementById("input-title");
   let inputDate = document.getElementById("input-date");
+  console.log(inputTitle.value);
+  console.log(inputDate.value);
 
   let todo = createNewTodo(inputTitle.value, "test", inputDate.value);
   addTodo(project, todo);
@@ -177,6 +94,8 @@ function addTodoElement(project) {
   todoDiv.appendChild(dateDiv);
 
   todoListHeader.after(todoDiv);
+
+  console.log(project);
 }
 
 function dragStart(e) {

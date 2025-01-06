@@ -1,6 +1,6 @@
-import { showProject } from "./controller/projectController";
+import { main } from "./controller/projectController";
 import "./styles.css";
-showProject();
+main();
 // let project = new Project();
 // let todo = createNewTodo("test", "test", "test");
 // addTodo(project, todo);

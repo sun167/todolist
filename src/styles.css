@@ -17,9 +17,8 @@
   width: 60vw;
   background-color: bisque;
   padding: 70px;
-  display: grid;
-  grid-template-columns: repeat(3, 33%);
-  grid-template-rows: 100px auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #project-name {
@@ -27,12 +26,24 @@
 }
 
 #left {
-  width: 15vw;
+  width: 20vw;
+  background-color: thistle;
+}
+
+#right {
+  width: 5vw;
   background-color: thistle;
 }
 
 #todoList{
 
+}
+
+#content-body{
+  display:flex;
+  justify-content: space-around;
+  width:auto;
+  min-height: 50vh;
 }
 #add-area{
     display: grid;
@@ -41,7 +52,7 @@
 #input-date{
 }
 #button-add-to-do{
-    grid-column-start: span 2;
+    grid-column-start: span 3;
 }
 #todo-div {
     border-radius: 2px;

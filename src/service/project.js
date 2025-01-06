@@ -7,3 +7,15 @@ export function addTodo(project, todo) {
 }
   todoList.push(todo);
 }
+
+export function addProjectToProjects(project) {
+  let projects =JSON.parse(localStorage.getItem("projects"));
+  if (projects.length > 0) {
+    project.id = projects.length + 1;
+  } else {
+    project.id = 1;
+}
+  projects.push(project);
+  localStorage.setItem("projects", JSON.stringify(projects));
+  console.log(projects);
+}
